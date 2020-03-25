@@ -170,7 +170,6 @@ global class uglyDatasourceConnection extends DataSource.Connection
 
         row.put(key, item.get(key));
     }
-    system.debug('return row'+ row);
     return row;
 }
 
@@ -196,11 +195,11 @@ global class uglyDatasourceConnection extends DataSource.Connection
             if (thisColumnName != null &&
                (thisColumnName.equals('ExternalId') ||
                 thisColumnName.equals('login')))
-                url = connectionInfo.endpoint +'/' + QUERY_FUNCTION + 'badge' ;
+                url = connectionInfo.endpoint +'/' + QUERY_FUNCTION + context.description ;
             else 
-                url = connectionInfo.endpoint + '/' +  QUERY_FUNCTION + 'badge';
+                url = connectionInfo.endpoint + '/' +  QUERY_FUNCTION + context.description ;
         } else {
-            url = connectionInfo.endpoint +'/' + QUERY_FUNCTION + 'badge';
+            url = connectionInfo.endpoint +'/' + QUERY_FUNCTION + context.description ;
         }
 
         /**
